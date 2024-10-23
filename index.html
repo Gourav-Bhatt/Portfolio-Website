@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gourav Bhattacharjee - Analyst Portfolio</title>
+    <style>
+        /* General styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #EDF4F2;
+        }
+
+        a {
+            text-decoration: none;
+            color: #31473A;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+        }
+
+        /* Fixed Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #31473A;
+            color: white;
+            padding: 10px 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+        }
+
+        .navbar ul li {
+            margin: 0 15px;
+        }
+
+        .navbar ul li a {
+            color: white;
+            font-size: 1.1rem;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            padding: 50px 0;
+            background-color: #EDF4F2;
+            margin-top: 70px; /* Offset for fixed navbar */
+        }
+
+        .hero-section img {
+            width: 50%;
+            max-width: 580px;
+            border-radius: 10px;
+        }
+
+        .hero-content {
+            width: 45%;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            font-family: serif;
+            margin-bottom: 20px;
+            color: #31473A;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #31473A;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 50px 0;
+            background-color: #EDF4F2;
+        }
+
+        .about-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .about-section img {
+            width: 30%;
+            border-radius: 10px;
+        }
+
+        .about-text {
+            width: 55%;
+        }
+
+        .about-text h2 {
+            font-size: 2rem;
+            font-family: serif;
+            margin-bottom: 20px;
+            color: #31473A;
+        }
+
+        .about-text p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Skills Section */
+        .skills-section {
+            padding: 50px 0;
+            background-color: #EDF4F2;
+        }
+
+        .skills-section h2 {
+            text-align: center;
+            font-size: 2rem;
+            font-family: serif;
+            margin-bottom: 30px;
+            color: #31473A;
+        }
+
+        .skills-list {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .skills-list .skill {
+            width: 30%;
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .skills-list .skill h3 {
+            color: #31473A;
+            margin-bottom: 10px;
+        }
+
+        /* Projects Section */
+        .projects-section {
+            padding: 50px 0;
+            background-color: #EDF4F2;
+        }
+
+        .projects-section h2 {
+            text-align: center;
+            font-size: 2rem;
+            font-family: serif;
+            margin-bottom: 30px;
+            color: #31473A;
+        }
+
+        .projects-list {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .projects-list .project {
+            width: 30%;
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .projects-list .project img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .projects-list .project h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #31473A;
+        }
+
+        .projects-list .project p {
+            font-size: 1rem;
+            line-height: 1.4;
+            color: #333;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 50px 0;
+            background-color: #EDF4F2;
+        }
+
+        .contact-section h2 {
+            text-align: center;
+            font-size: 2rem;
+            font-family: serif;
+            margin-bottom: 30px;
+            color: #31473A;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .contact-info a {
+            margin: 10px 0;
+            font-size: 1.2rem;
+            color: #31473A;
+        }
+
+        /* Scroll to Top Button */
+        .scroll-top-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: none;
+            background-color: #31473A;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 1.5rem;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #31473A;
+            color: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-section, .about-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-section img, .about-section img {
+                width: 80%;
+            }
+
+            .hero-content, .about-text {
+                width: 100%;
+            }
+
+            .skills-list .skill, .projects-list .project {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Fixed Navbar -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section container">
+        <div class="hero-content">
+            <h1>GOURAV BHATTACHARJEE</h1>
+            <p>Business Analyst | Data Analyst</p>
+            <a href="DA_Resume.pdf" class="btn">Download CV</a>
+        </div><br>
+        <img src="hero-image.jpg" alt="Profile Image">
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section container">
+        <div class="about-content">
+            <img src="about-image2.jpg" alt="About Image">
+            <div class="about-text">
+                <h2>ABOUT ME</h2>
+                <p>
+                    I am a detail-oriented analyst with a solid foundation in business and data analysis, visualization, and business intelligence. I hold a Bachelor's degree in Computer Applications from Swami Vivekanand Subharti University, Meerut and an Advanced Certification in Data Science and AI with a specialization in Business Intelligence/Data Analysis from International Institute of Information Technology, Bangalore. And, an Business Analyst certification from Analyst Club, <br> Led by: Hrithik Mehlawat, former Business Analyst & Strategist at Bain & Company. <br><br> My expertise includes SQL for querying databases, Power BI and Tableau for creating interactive dashboards, and advanced Excel functions for data manipulation and analysis. With hands-on experience in various projects, such as Market Research & Competitive Analysis and visualizing HR analytics dashboard, I excel in transforming complex data into actionable insights that drive strategic decisions. My skill set includes proficiency in Python using AI, for data manipulation, strong abilities in data visualization to present trends and patterns clearly, and effective report writing to communicate findings to stakeholders. <br><br> Driven by a passion for data and a commitment to continuous learning, I am eager to leverage my analytical skills and technical expertise to contribute to data-driven decision-making in a dynamic and innovative environment.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section container">
+        <h2>MY SKILLS</h2>
+        <div class="skills-list">
+            <div class="skill">
+                <h3>SQL</h3>
+                <p>Proficient in writing SQL queries to retrieve, analyze, and manipulate data.</p>
+            </div>
+            <div class="skill">
+                <h3>Business Intelligence Tools</h3>
+                <p>Expertise in creating interactive dashboards and reports to visualize business data.</p>
+            </div>
+            <div class="skill">
+                <h3>Advance Excel</h3>
+                <p>Advanced skills in Excel for data analysis, pivot tables, VLOOKUP and data visualization.</p>
+            </div>
+            <div class="skill">
+                <h3>MS Office</h3>
+                <p>MS Office is used to enhance productivity and collaboration.</p>
+            </div>
+            <div class="skill">
+                <h3>Requirement Gathering & Documentation</h3>
+                <p>Strong ability to gather raw data and convert into meaningful visual insights.</p>
+            </div>
+            <div class="skill">
+                <h3>Report & Dashobard Designing</h3>
+                <p>Experienced in preparing detailed analytical reports and dashboards for stakeholders.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section container">
+        <h2>MY PROJECTS</h2>
+        <div class="projects-list">
+            <div class="project">
+                <img src="sales.jpg" alt="Project 1">
+                <h3>Sales Dataset Analysis</h3>
+                <p>Analyse sales data to identify trends, seasonal patterns and high sale products region wise.</p>
+                <br>
+                <a href="https://github.com/Gourav-Bhatt/Metro_Store_Sale_Dasboard"><strong>Project Link</strong></a>
+            </div>
+
+            <div class="project">
+                <img src="market.jpg" alt="Project 4">
+                <h3>Market Research & Competitive Analysis</h3>
+                <p>The objective of this market research and competitive analysis is to gain a thorough understanding of the current market landscape, customer needs, and competitor strategies. This will guide strategic decision-making, improve competitive positioning, and help identify market opportunities for growth.</p>
+                <br>
+                <a href="https://github.com/Gourav-Bhatt/Market_Research"><strong>Project Link</strong></a>
+            </div>
+            
+            <div class="project">
+                <img src="hr.jpg" alt="Project 6">
+                <h3>HR Analytics Dashobard</h3>
+                <p>Help an organization to improve employee performance and improve employee retention by creating a HR Analytics Dashboard.</p>
+                <br>
+                <a href="https://github.com/Gourav-Bhatt/HR_Dashboard"><strong>Project Link</strong></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section container">
+        <h2>CONTACT ME</h2>
+        <div class="contact-info">
+            <h4>Feel free to reach me:</h4>
+            <a href="mailto:gouravbhatt244@example.com"><strong>Click Here:</strong> gouravbhatt244@gamil.com</a>
+            <a href="https://www.linkedin.com/in/gourav-bhattacharjee-a133b9295/"><strong>Click Here:</strong> linkedin/gouravbhattacharjee</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 Gourav Bhattacharjee. All rights reserved.</p>
+    </footer>
+    
+
+    <script>
+        // Show scroll-to-top button
+        window.onscroll = function () {
+            const scrollBtn = document.querySelector('.scroll-top-btn');
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                scrollBtn.style.display = 'block';
+            } else {
+                scrollBtn.style.display = 'none';
+            }
+        };
+
+        // Scroll to top function
+        function scrollToTop() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
+</body>
+</html>
